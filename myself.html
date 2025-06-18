@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Myself</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e0e0e0;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: auto;   
+    }
+
+    .math-thought {
+      position: fixed;
+      top: 100%;
+      left: 50%;
+      font-size: 1.2rem;
+      font-family: monospace;
+      color: #00e5ff;
+      opacity: 0;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: -1;
+      animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateX(-50%) translateY(-100vh);
+        opacity: 0;
+      }
+    }
+
+    nav, header, section, footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-img {
+      display: block;
+      margin: 2rem auto;
+      width: 200px;
+      border-radius: 50%;
+      border: 4px solid #90caf9;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    section {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      background-color: rgba(30, 30, 30, 0.8);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #90caf9;
+      margin: 0 1rem;
+    }
+
+    nav {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    nav a {
+      color: #90caf9;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated math background -->
+  <script>
+    const equations = [
+      "E = mc²", "a² + b² = c²", "∇·E = ρ/ε₀", "f(x) = x² + 3x + 5",
+      "Σxᵢ = μ", "lim(x→0) sin(x)/x = 1", "P(A|B) = P(A∩B)/P(B)",
+      "∫ e^x dx = e^x + C", "x = (-b ± √(b²-4ac))/2a",
+      "F = ma", "i² = -1", "V = IR"
+    ];
+
+    function spawnEquation() {
+      const eq = document.createElement("div");
+      eq.className = "math-thought";
+      eq.textContent = equations[Math.floor(Math.random() * equations.length)];
+      eq.style.left = `${Math.random() * 100}%`;
+      eq.style.fontSize = `${Math.random() * 1.5 + 1}rem`;
+      eq.style.animationDuration = `${Math.random() * 5 + 5}s`;
+
+      document.body.appendChild(eq);
+
+      setTimeout(() => {
+        eq.remove();
+      }, 10000);
+    }
+
+    setInterval(spawnEquation, 800);
+  </script>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="myself.html">Myself</a>
+    <a href="skills.html">Skill Set</a>
+    <a href="work.html">Work</a>
+  </nav>
+
+  <header>
+    <h1>About Me</h1>
+  </header>
+
+  <section>
+    <img src="images/IMG_3667.jpg" alt="Photo of Song Yi" class="profile-img" />
+    
+    <p>
+      Hi, I'm <strong>Song Yi</strong>, an AI Engineer with a strong foundation in machine learning systems and cloud-native infrastructure.
+      I come from a technical background in AI research and production deployment, but what truly defines me is my relentless curiosity and structured thinking — often visualized in equations, logic, and code.
+    </p>
+    <p>
+      Outside of code, I’m deeply into books that expand perspective and sports that demand discipline — these balance my analytical work with creative and physical energy.
+      In my professional journey, I’ve built intelligent systems involving RAG pipelines, LangGraph workflows, CLIP + FAISS vector stores, and AWS automation.
+      I don’t just ship code — I ship thought.
+    </p>
+  </section>
+
+  <footer>
+    <p>Connect with me:</p>
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+  </footer>
+</body>
+</html>
